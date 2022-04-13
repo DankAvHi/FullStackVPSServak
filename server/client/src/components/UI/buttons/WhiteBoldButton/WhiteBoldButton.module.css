@@ -1,0 +1,17 @@
+.button {
+    border-radius: 20px;
+    padding: 15px 30px;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.text {
+    font-size: 2rem;
+    margin-right: 15px;
+}
+
+.img {
+    width: 64px;
+}

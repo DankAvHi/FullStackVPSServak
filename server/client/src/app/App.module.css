@@ -1,0 +1,4 @@
+.App {
+    background-color: var(--main__background-color);
+    color: var(--main__color);
+}
