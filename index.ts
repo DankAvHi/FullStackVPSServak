@@ -1,28 +1,24 @@
-const express = require("express");
-const path = require("path");
-const cors = require("cors");
+import cors from "cors";
+import dotenv from "dotenv";
+import express, { Express } from "express";
+import path from "path";
+import apiRouter from "./src/API/api";
 
-const PORT = process.env.PORT || 8001;
+dotenv.config();
 
-const app = express();
+const PORT = process.env.PORT;
+
+const app: Express = express();
 app.use(express.static(__dirname + "/client/build"));
 app.use(express.json());
 app.use(cors());
 
 app.use("/", express.static(path.join(__dirname, "client", "build")));
 
-app.post("/api", async (req, res) => {
-     console.log(req.body);
-     res.json({ message: "HI" });
-});
+app.use("/api", apiRouter);
 
 app.get("*", (req, res) => {
      res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
-});
-
-app.use(function (req, res, next) {
-     res.status(404);
-     res.redirect("/");
 });
 
 app.listen(PORT, () => {

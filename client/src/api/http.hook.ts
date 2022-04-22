@@ -9,7 +9,7 @@ export const useHttp = () => {
           async (
                url: IHttpHook["url"],
                method: IHttpHook["method"] = "GET",
-               body: IHttpHook["body"] = {},
+               body?: IHttpHook["body"],
                headers = {} as Headers
           ) => {
                setLoading(true);
